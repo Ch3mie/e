@@ -1,8 +1,14 @@
-function parking(x,y) {
-  let x = 
-  let y = 
+function parking(spaces, yes, today) {
+  let count = 0;
+  for (let i = 0; i < spaces; i++) {
+    if (yes[i] === "C" && today[i] === "C") {
+      count++;
+    }
+  }
+  return count;
 }
 
+console.log(parking(5, "CC..C", ".CCCC"));
 
 //add a yesterday and today
 
