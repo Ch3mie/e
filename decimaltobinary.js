@@ -29,3 +29,5 @@ function dectobin(decimal) {
     }
   }
 }
+
+console.log(dectobin(127));
