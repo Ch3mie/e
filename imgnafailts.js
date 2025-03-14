@@ -43,32 +43,18 @@ const guestPreferences = {
   ],
 };
 
-list = [];
-times = [];
-
-function express(guestPreferences) {
-  guestPreferences.rideChoices.forEach((ride) => {
-    if (ride == lightningLaneRides.object.name) {
-      if (lightningLaneRides.object.availableSpots - partySize > 0) {
-        if (lightningLaneRides.object.time in times === false) {
-          times.push(lightningLaneRides.object.time);
-          list.push(lightningLaneRides.object);
-          list.object.availableSpots = list.object.availableSpots - x.partySize;
-          console.log(list);
-        }
-      }
-    }
+function express2(guestPreferences) {
+  const x1 = lightningLaneRides.filter((object) =>
+    guestPreferences.rideChoices.includes(object.name)
+  );
+  let x2 = x1.filter(
+    (object) => object.availableSpots - guestPreferences.partySize > 0
+  );
+  x2.forEach((ride) => {
+    let newSize = ride.availableSpots - guestPreferences.partySize;
+    ride.availableSpots = newSize;
   });
+  console.log(x2);
 }
 
-function express2(input) {
-  if (input.rideChoices.ride == lightningLaneRides.object.name)
-    lightningLaneRides.forEach((ride) => {
-      let newRides = ride.filter(ride.name);
-      if (newRides == rideChoices.name) {
-        if()
-      }  
-    });
-}
-
-express(guestPreferences);
+express2(guestPreferences);
